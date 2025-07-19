@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mon Hub - Copy Script</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #5f33ff, #2c008f);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      color: #fff;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #ffffff44;
+    }
+    .box {
+      background: #1c0d47;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #8f6bff66;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      resize: none;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 14px;
+      font-family: monospace;
+      color: #fff;
+      background: #2d1a7a;
+    }
+    textarea:focus {
+      outline: none;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #7b4dff;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    button:hover {
+      background-color: #6a3ee3;
+    }
+    button:active {
+      transform: scale(0.96);
+    }
+    .copied-msg {
+      margin-top: 15px;
+      color: #4caf50;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mon Hub</h1>
+
+  <div class="box">
+    <textarea id="myInput" readonly>loadstring(game:HttpGet("https://raw.githubusercontent.com/Monmon9ne/Mon_Hub/refs/heads/main/ObfusStealABrainrot.txt"))()</textarea>
+    
+    <button onclick="myFunction()">Copy Script</button>
+    
+    <div class="copied-msg" id="copiedMsg">✅ Copied!</div>
+  </div>
+
+  <script>
+    function myFunction() {
+      const copyText = document.getElementById("myInput");
+      const copiedMsg = document.getElementById("copiedMsg");
+
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // Mobile
+
+      navigator.clipboard.writeText(copyText.value).then(() => {
+        copiedMsg.style.display = "block";
+        setTimeout(() => {
+          copiedMsg.style.display = "none";
+        }, 1500);
+      }).catch(() => {
+        alert("Copy failed");
+      });
+    }
+  </script>
+
+</body>
+</html>
